@@ -1,12 +1,13 @@
 package com.test.tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.support.ui.*;
+import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,34 +16,86 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
+
+    protected String baseUrl = "https://www.saucedemo.com/";
+
     @BeforeMethod
-    public void driverUp() {
+    public void setUp() {
+
         ChromeOptions options = new ChromeOptions();
 
-        // Create a map to store Chrome preferences
+        // Disable popups / browser noise
         Map<String, Object> prefs = new HashMap<>();
-
-        // 1. Disable the password manager
         prefs.put("profile.password_manager_enabled", false);
-        // 2. Disable the "leak detection" (this stops the data breach popup)
         prefs.put("password_manager_leak_detection", false);
-        // 3. Prevent the "Save Password" prompt
         prefs.put("credentials_enable_service", false);
 
         options.setExperimentalOption("prefs", prefs);
 
-        // Pass the options into the driver
+        // Extra stability
+        options.addArguments("--disable-notifications");
+        options.addArguments("--incognito");
+
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    }
-    @AfterMethod
-    public void driverDown() {
 
-        //checks if the browser if open first otherwise we get the nullpointerexception
+        // Explicit wait (longer for stability)
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Navigate once here
+        driver.get(baseUrl);
+
+        log("Browser started and navigated to base URL");
+    }
+
+    @AfterMethod
+    public void tearDown() {
+
         if (driver != null) {
             driver.quit();
+            log("Browser closed");
         }
+    }
 
+    // ---------- UTILITIES ----------
+
+    protected void log(String message) {
+        System.out.println("[TEST LOG] " + message);
+    }
+
+    protected WebElement waitForVisibility(By locator) {
+        log("Waiting for visibility: " + locator);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected WebElement waitForClickability(By locator) {
+        log("Waiting for clickability: " + locator);
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    protected void click(By locator) {
+        waitForClickability(locator).click();
+        log("Clicked: " + locator);
+    }
+
+    protected void type(By locator, String text) {
+        WebElement element = waitForVisibility(locator);
+        element.clear();
+        element.sendKeys(text);
+        log("Typed into: " + locator);
+    }
+
+    protected void waitForInvisibility(By locator) {
+        log("Waiting for element to disappear: " + locator);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    protected void takeScreenshot(String name) {
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            Files.copy(src.toPath(), new File("screenshots/" + name + ".png").toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

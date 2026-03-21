@@ -8,11 +8,11 @@ public class BrowserTest extends BaseTest {
 
     @Test
     public void testBrowser() {
-        driver.get("https://www.google.com");
+
 
         String actualTitle =driver.getTitle();
 
-        String expectedTitle = "Google";
+        String expectedTitle = "Swag Labs";
 
         Assert.assertEquals(actualTitle, expectedTitle,"Title does not match");
 
