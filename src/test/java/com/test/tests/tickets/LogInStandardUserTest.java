@@ -19,7 +19,7 @@ public class LogInStandardUserTest extends BaseTest {
         Assert.assertTrue(
                 waitForVisibility(By.cssSelector("[data-test='inventory-container']")).isDisplayed()
         );
-
+        //takeScreenshot("SS of the inventory");
         log("User successfully logged in");
     }
 }

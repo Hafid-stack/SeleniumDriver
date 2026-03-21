@@ -98,4 +98,10 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+    protected void login(String username, String password) {
+        type(By.cssSelector("[data-test='username']"), username);
+        type(By.cssSelector("[data-test='password']"), password);
+        click(By.cssSelector("[data-test='login-button']"));
+        log("Logged in successfully");
+    }
 }
