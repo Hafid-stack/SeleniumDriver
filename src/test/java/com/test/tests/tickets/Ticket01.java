@@ -2,7 +2,6 @@ package com.test.tests.tickets;
 
 import com.test.tests.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +13,7 @@ public class Ticket01 extends BaseTest {
     @Test
     public void test01() throws InterruptedException {
 
-        LoginStanderUser loginStanderUser = new LoginStanderUser();
+        LogInStandardUserTest loginStanderUser = new LogInStandardUserTest();
         loginStanderUser.loginStanderUser();
 
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
