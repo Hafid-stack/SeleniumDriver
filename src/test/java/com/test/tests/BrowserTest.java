@@ -14,15 +14,17 @@ public class BrowserTest extends BaseTest {
 
         String expectedTitle = "Google";
 
-        //Assert.assertEquals(actualTitle, expectedTitle,"Title does not match");
+        Assert.assertEquals(actualTitle, expectedTitle,"Title does not match");
 
-        if (actualTitle.equalsIgnoreCase(expectedTitle)) {
-            System.out.println("Test Passed Tital is : " + actualTitle);
-        }
-        else {
-
-            System.out.println("Title equals to " + expectedTitle);
-        }
+        System.out.println("Test Passed");
+        //Never use if/else as QA
+//        if (actualTitle.equalsIgnoreCase(expectedTitle)) {
+//            System.out.println("Test Passed Tital is : " + actualTitle);
+//        }
+//        else {
+//
+//            System.out.println("Title equals to " + expectedTitle);
+//        }
 
     }
 }
