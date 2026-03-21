@@ -13,9 +13,7 @@ public class SelectItemTest extends BaseTest {
 
         click(By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']"));
 
-        Assert.assertTrue(
-                waitForVisibility(By.className("shopping_cart_badge")).isDisplayed()
-        );
-        log("Item selected successfully");
+        Assert.assertTrue(waitForVisibility(By.className("shopping_cart_badge")).isDisplayed(),"Item was not added");
+        log("Item added successfully");
     }
 }

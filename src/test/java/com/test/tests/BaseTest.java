@@ -1,5 +1,6 @@
 package com.test.tests;
 
+import com.test.tests.tickets.utilities.users.LogInUsers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.*;
@@ -11,12 +12,13 @@ import java.nio.file.Files;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-
+    protected LogInUsers logInUsers;
     protected String baseUrl = "https://www.saucedemo.com/";
 
     @BeforeMethod
