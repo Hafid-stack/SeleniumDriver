@@ -14,16 +14,8 @@ public class Ticket01 extends BaseTest {
     @Test
     public void test01() throws InterruptedException {
 
-        String userName="standard_user";
-        String password="secret_sauce";
-        //Login
-        driver.navigate().to("https://www.saucedemo.com/");
-
-        driver.findElement(By.id("user-name")).sendKeys(userName);
-
-        driver.findElement(By.id("password")).sendKeys(password);
-
-        driver.findElement(By.id("login-button")).click(); //this has issues with the html rendering
+        LoginStanderUser loginStanderUser = new LoginStanderUser();
+        loginStanderUser.loginStanderUser();
 
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
         System.out.println("User logged in");
