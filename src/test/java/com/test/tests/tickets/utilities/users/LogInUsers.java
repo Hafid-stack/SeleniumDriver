@@ -1,6 +1,6 @@
 package com.test.tests.tickets.utilities.users;
 
-import com.test.tests.BaseTest;
+import com.test.tests.tickets.basetests.BaseTest;
 import com.test.tests.tickets.utilities.ConfigReader;
 import org.openqa.selenium.By;
 

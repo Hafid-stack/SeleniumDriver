@@ -1,4 +1,4 @@
-package com.test.tests;
+package com.test.tests.tickets.basetests;
 
 import com.test.tests.tickets.utilities.users.LogInUsers;
 import org.openqa.selenium.*;
@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class BaseTest {
 

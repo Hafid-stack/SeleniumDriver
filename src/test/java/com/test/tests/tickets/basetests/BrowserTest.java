@@ -1,4 +1,4 @@
-package com.test.tests;
+package com.test.tests.tickets.basetests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

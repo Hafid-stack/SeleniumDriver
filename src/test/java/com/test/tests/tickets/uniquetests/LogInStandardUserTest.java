@@ -1,7 +1,6 @@
-package com.test.tests.tickets;
+package com.test.tests.tickets.uniquetests;
 
-import com.test.tests.BaseTest;
-import com.test.tests.tickets.utilities.ConfigReader;
+import com.test.tests.tickets.basetests.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,6 +1,7 @@
-package com.test.tests.tickets;
+package com.test.tests.tickets.actualtests;
 
-import com.test.tests.BaseTest;
+import com.test.tests.tickets.basetests.BaseTest;
+import com.test.tests.tickets.uniquetests.LogInStandardUserTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
