@@ -17,7 +17,7 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected LogInUsers logInUsers;
+    //protected LogInUsers logInUsers;
     protected String baseUrl = "https://www.saucedemo.com/";
 
     @BeforeMethod

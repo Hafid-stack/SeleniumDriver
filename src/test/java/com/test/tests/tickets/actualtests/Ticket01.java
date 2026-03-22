@@ -15,7 +15,7 @@ public class Ticket01 extends BaseTest {
     public void test01() throws InterruptedException {
 
         LogInStandardUserTest loginStanderUser = new LogInStandardUserTest();
-        loginStanderUser.loginStanderUser();
+        loginStanderUser.loginStanderUserTest();
 
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
         System.out.println("User logged in");
