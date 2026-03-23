@@ -1,18 +1,15 @@
 package com.test.uniquetests;
 
 import com.test.basetests.BaseTest;
-import com.test.pages.AddItemToCartPage;
-import com.test.pages.LoginPage;
-import com.test.pages.ShoppingCartPage;
-import com.test.pages.StandardUserDataPage;
-import org.openqa.selenium.By;
-import org.testng.Assert;
+import com.test.pages.*;
 import org.testng.annotations.Test;
 
-public class ShoppingCartIconTest extends BaseTest {
+public class FillingFormTest extends BaseTest {
+
 
     @Test
-    public void ShoppingCartIconTest() {
+    public void fillingFormTest(){
+
         LoginPage loginPage = new LoginPage(driver);
         StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
@@ -21,8 +18,9 @@ public class ShoppingCartIconTest extends BaseTest {
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         shoppingCartPage.openShoppingCart();
         shoppingCartPage.selectCheckOutButton();
-        Assert.assertTrue(waitForVisibility(By.cssSelector("[data-test='checkout-info-container']")).
-                isDisplayed(),"Checkout unsuccesful ");
-        log("Shopping cart opened successfully");
+        FormFillingPage formFillingPage = new FormFillingPage(driver);
+        formFillingPage.formFillingPage();
+        formFillingPage.clickContinueButton();
+
     }
 }
