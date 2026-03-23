@@ -1,4 +1,4 @@
-package com.test.tests.tickets.utilities;
+package com.test.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

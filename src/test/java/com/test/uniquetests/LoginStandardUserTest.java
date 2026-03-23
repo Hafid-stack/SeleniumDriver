@@ -1,13 +1,14 @@
-package com.test.tests.tickets.uniquetests;
+package com.test.uniquetests;
 
-import com.test.tests.tickets.basetests.BaseTest;
-import com.test.tests.tickets.pages.LoginPage;
-import com.test.tests.tickets.utilities.ConfigReader;
+import com.test.basetests.BaseTest;
+import com.test.pages.LoginPage;
+import com.test.pages.StandardUserDataPage;
+import com.test.utilities.ConfigReader;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LogInStandardUserTest extends BaseTest {
+public class LoginStandardUserTest extends BaseTest {
     @Test
     public void loginStanderUserTest() {
     String username = ConfigReader.get("user.standard.username");
@@ -15,7 +16,8 @@ public class LogInStandardUserTest extends BaseTest {
 
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(username, password);
+        StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
+        loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
         //If no Assertion is present then its not a test but a script
         Assert.assertTrue(
                 waitForVisibility(By.cssSelector("[data-test='inventory-container']"))

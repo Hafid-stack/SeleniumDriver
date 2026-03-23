@@ -1,6 +1,5 @@
-package com.test.tests.tickets.basetests;
+package com.test.basetests;
 
-import com.test.tests.tickets.utilities.users.LogInUsers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.*;

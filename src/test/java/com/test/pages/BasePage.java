@@ -1,4 +1,4 @@
-package com.test.tests.tickets.pages;
+package com.test.pages;
 
 
 import org.openqa.selenium.By;

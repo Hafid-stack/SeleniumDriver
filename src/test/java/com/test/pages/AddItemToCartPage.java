@@ -1,11 +1,11 @@
-package com.test.tests.tickets.pages;
+package com.test.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AddItemToCartPage extends BasePage {
 
-    private By addedItemField = By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']");
+    private By addedItemButton = By.cssSelector("[data-test='add-to-cart-sauce-labs-backpack']");
 
     public AddItemToCartPage(WebDriver driver) {
         super(driver);
@@ -14,7 +14,8 @@ public class AddItemToCartPage extends BasePage {
 
     public void addItemToCart() {
 
-        click(addedItemField);
+        click(addedItemButton);
+        //Pages do not need/use log
         log("Clicked on Add To Cart Button");
 
     }

@@ -1,7 +1,7 @@
-package com.test.tests.tickets.actualtests;
+package com.test.actualtests;
 
-import com.test.tests.tickets.basetests.BaseTest;
-import com.test.tests.tickets.uniquetests.LogInStandardUserTest;
+import com.test.basetests.BaseTest;
+import com.test.uniquetests.LoginStandardUserTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -14,7 +14,7 @@ public class Ticket01 extends BaseTest {
     @Test
     public void test01() throws InterruptedException {
 
-        LogInStandardUserTest loginStanderUser = new LogInStandardUserTest();
+        LoginStandardUserTest loginStanderUser = new LoginStandardUserTest();
         loginStanderUser.loginStanderUserTest();
 
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));

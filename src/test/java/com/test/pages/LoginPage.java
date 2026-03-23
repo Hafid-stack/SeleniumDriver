@@ -1,9 +1,7 @@
-package com.test.tests.tickets.pages;
+package com.test.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class LoginPage extends BasePage {
 
@@ -19,6 +17,7 @@ public class LoginPage extends BasePage {
         type(usernameField, username);
         type(passwordField, password);
         click(loginButton);
+        //pages do not need log
         log("Log In Successful");
 
     }

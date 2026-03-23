@@ -1,7 +1,7 @@
-package com.test.tests.tickets.utilities.users;
+package com.test.utilities.users;
 
-import com.test.tests.tickets.basetests.BaseTest;
-import com.test.tests.tickets.utilities.ConfigReader;
+import com.test.basetests.BaseTest;
+import com.test.utilities.ConfigReader;
 import org.openqa.selenium.By;
 
 public class LogInUsers extends BaseTest {
