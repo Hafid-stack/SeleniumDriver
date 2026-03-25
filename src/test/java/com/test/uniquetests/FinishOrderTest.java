@@ -12,19 +12,21 @@ public class FinishOrderTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
-        AddItemToCartPage addItemToCartPage = new AddItemToCartPage(driver);
-        addItemToCartPage.addItemToCart();
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.openShoppingCart();
-        shoppingCartPage.selectCheckOutButton();
-        FormFillingPage formFillingPage = new FormFillingPage(driver);
-        formFillingPage.formFillingPage();
-        formFillingPage.clickContinueButton();
-        ClickFinishPage clickFinishPage = new ClickFinishPage(driver);
-        clickFinishPage.clickContinueButton();
-        clickFinishPage.thankYouText();
-        Assert.assertTrue(waitForVisibility(By.cssSelector("[data-test='complete-header']")).
-                isDisplayed(),"Item was not completed");
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.addItemToCart();
+        CartPage cartPage = new CartPage(driver);
+        cartPage.clickCheckout();
+
+        CheckoutStepOnePage checkoutStepOnePage = new CheckoutStepOnePage(driver);
+        checkoutStepOnePage.enterShippingDetails("Jhon","Doe","1234");
+        checkoutStepOnePage.clickContinue();
+        CheckoutStepTwoPage checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
+        checkoutStepTwoPage.clickFinish();
+        CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);
+
+
+        Assert.assertTrue(checkoutCompletePage.checkoutIsSuccesfullMessage(), "Thank you message not displayed!");
+
         log("Order completed successfully");
     }
 

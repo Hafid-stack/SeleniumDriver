@@ -1,9 +1,9 @@
 package com.test.uniquetests;
 
 import com.test.basetests.BaseTest;
-import com.test.pages.AddItemToCartPage;
+import com.test.pages.ProductsPage;
 import com.test.pages.LoginPage;
-import com.test.pages.ShoppingCartPage;
+import com.test.pages.CartPage;
 import com.test.pages.StandardUserDataPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -16,11 +16,10 @@ public class ShoppingCartIconTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
-        AddItemToCartPage addItemToCartPage = new AddItemToCartPage(driver);
-        addItemToCartPage.addItemToCart();
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.openShoppingCart();
-        shoppingCartPage.selectCheckOutButton();
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.addItemToCart();
+        CartPage cartPage = new CartPage(driver);
+        cartPage.clickCheckout();
         Assert.assertTrue(waitForVisibility(By.cssSelector("[data-test='checkout-info-container']")).
                 isDisplayed(),"Checkout unsuccesful ");
         log("Shopping cart opened successfully");

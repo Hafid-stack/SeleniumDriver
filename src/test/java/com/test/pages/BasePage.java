@@ -39,4 +39,7 @@ public class BasePage {
     protected void log(String message) {
         System.out.println("Log Message: " + message);
     }
+    protected String getText(By locator) {
+        return waitForVisibility(locator).getText();
+    }
 }
