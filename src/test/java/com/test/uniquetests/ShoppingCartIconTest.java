@@ -17,7 +17,7 @@ public class ShoppingCartIconTest extends BaseTest {
         StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
         ProductsPage productsPage = new ProductsPage(driver);
-        productsPage.addItemToCart();
+        productsPage.addItemToCart("Sauce Labs Backpack");
         CartPage cartPage = new CartPage(driver);
         cartPage.clickCheckout();
         Assert.assertTrue(waitForVisibility(By.cssSelector("[data-test='checkout-info-container']")).

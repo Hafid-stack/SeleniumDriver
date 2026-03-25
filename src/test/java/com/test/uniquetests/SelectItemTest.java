@@ -16,7 +16,7 @@ public class SelectItemTest extends BaseTest {
         StandardUserDataPage standardUserDataPage = new StandardUserDataPage(driver);
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
         ProductsPage productsPage = new ProductsPage(driver);
-        productsPage.addItemToCart();
+        productsPage.addItemToCart("Sauce Labs Backpack");
 
 
         Assert.assertTrue(waitForVisibility(By.className("shopping_cart_badge")).isDisplayed(),"Item was not added");

@@ -13,11 +13,17 @@ public class ProductsPage extends BasePage {
     }
 
 
-    public void addItemToCart() {
+    public void addItemToCart(String productName) {
 
-        click(addedItemButton);
-        //Pages do not need/use log
-        log("Clicked on Add To Cart Button");
+        String xpath = String.format(
+                "//div[@class='inventory_item'][.//div[text()='%s']]//button",
+                productName
+        );
+
+        By addToCartBtn = By.xpath(xpath);
+
+        waitForClickability(addToCartBtn);
+        click(addToCartBtn);
 
     }
 

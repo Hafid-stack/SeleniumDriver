@@ -42,4 +42,7 @@ public class BasePage {
     protected String getText(By locator) {
         return waitForVisibility(locator).getText();
     }
+    protected WebElement waitForClickability(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
 }

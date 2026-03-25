@@ -9,6 +9,7 @@ public class CheckoutTests extends BaseTest {
 
     @Test(description = "QA-101: Verify successful end-to-end checkout flow for a standard user")
     public void verifyStandardUserCanCompletePurchase() {
+
         // 1. Initialize Pages (Usually handled via a PageFactory or BaseTest)
         LoginPage loginPage = new LoginPage(driver);
         StandardUserDataPage standardUserDataPage=new StandardUserDataPage(driver);
@@ -23,9 +24,11 @@ public class CheckoutTests extends BaseTest {
         loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
 
         //Add item function in the Products Page might need to expect String that represent any item name (to work on)
-        productsPage.addItemToCart();
+        productsPage.addItemToCart("Sauce Labs Backpack");
         productsPage.openCart();
 
+        //Checking if the cart has the intended product
+        Assert.assertTrue(cartPage.isProductInCart("Sauce Labs Backpack"), "Product not found in cart!");
         cartPage.clickCheckout();
 
         infoPage.enterShippingDetails("John", "Doe", "12345");
