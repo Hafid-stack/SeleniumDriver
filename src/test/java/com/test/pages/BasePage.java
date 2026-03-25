@@ -2,6 +2,7 @@ package com.test.pages;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,7 +31,13 @@ public class BasePage {
     protected void type(By locator, String text) {
         WebElement element = waitForVisibility(locator);
         element.clear();
-        element.sendKeys(text);
+        if(text.isEmpty()) {
+            element.sendKeys(" ");
+            element.sendKeys(Keys.BACK_SPACE);
+        } else {
+            element.sendKeys(text);
+
+        }
     }
 
     protected void click(By locator) {

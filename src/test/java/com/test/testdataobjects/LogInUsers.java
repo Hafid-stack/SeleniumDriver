@@ -1,4 +1,4 @@
-package com.test.utilities.users;
+package com.test.testdataobjects;
 
 import com.test.basetests.BaseTest;
 import com.test.utilities.ConfigReader;

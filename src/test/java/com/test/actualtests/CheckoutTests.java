@@ -14,7 +14,6 @@ public class CheckoutTests extends BaseTest {
 
         // 1. Initialize Pages (Usually handled via a PageFactory or BaseTest)
         LoginPage loginPage = new LoginPage(driver);
-        UserFactory userFactory =new UserFactory();
         ProductsPage productsPage = new ProductsPage(driver);
         CartPage cartPage = new CartPage(driver);
         CheckoutStepOnePage infoPage = new CheckoutStepOnePage(driver);
