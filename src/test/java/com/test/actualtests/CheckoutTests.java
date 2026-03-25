@@ -2,6 +2,8 @@ package com.test.actualtests;
 
 import com.test.basetests.BaseTest;
 import com.test.pages.*;
+import com.test.testdataobjects.User;
+import com.test.testdataobjects.UserFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,16 +14,18 @@ public class CheckoutTests extends BaseTest {
 
         // 1. Initialize Pages (Usually handled via a PageFactory or BaseTest)
         LoginPage loginPage = new LoginPage(driver);
-        StandardUserDataPage standardUserDataPage=new StandardUserDataPage(driver);
+        UserFactory userFactory =new UserFactory();
         ProductsPage productsPage = new ProductsPage(driver);
         CartPage cartPage = new CartPage(driver);
         CheckoutStepOnePage infoPage = new CheckoutStepOnePage(driver);
         CheckoutStepTwoPage overviewPage = new CheckoutStepTwoPage(driver);
         CheckoutCompletePage completePage = new CheckoutCompletePage(driver);
+        User user = UserFactory.standardUser();
+
 
 
         // 2. Test Steps
-        loginPage.login(standardUserDataPage.standardUserUsername(), standardUserDataPage.standardUserPassword());
+        loginPage.login(user.getUsername(),user.getPassword());
 
         //Add item function in the Products Page might need to expect String that represent any item name (to work on)
         productsPage.addItemToCart("Sauce Labs Backpack");
