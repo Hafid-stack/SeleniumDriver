@@ -40,7 +40,7 @@ public class CheckoutErrorTest extends BaseTest {
         log("First name error message test passed");
 
         //Leave the last  name empty and click continue
-        checkoutStepOnePage.emptyingShippingDetails();
+        //checkoutStepOnePage.emptyingShippingDetails();
         checkoutStepOnePage.enterShippingDetails("Jhon","","1234");
         checkoutStepOnePage.clickContinue();
 
@@ -54,7 +54,7 @@ public class CheckoutErrorTest extends BaseTest {
 
 
         //Leave the postal code empty and click continue
-        checkoutStepOnePage.emptyingShippingDetails();
+        //checkoutStepOnePage.emptyingShippingDetails();
         checkoutStepOnePage.enterShippingDetails("Jhon","Doe","");
         checkoutStepOnePage.clickContinue();
 
