@@ -20,6 +20,10 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    public void refreshPage() {
+        driver.navigate().refresh();
+        log("Page has been refreshed");
+    }
     protected WebElement waitForVisibility(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }

@@ -22,4 +22,26 @@ public class LoginPage extends BasePage {
         log("Log In Successful");
 
     }
+    public boolean isLoggedInBtnClickable() {
+        boolean result = false;
+        if(waitForClickability(loginButton).isEnabled())
+
+            result = true;
+        log("Login button is clickable");
+        return result;
+
+    }
+    public void typeUsername(String username) {
+        type(usernameField, username);
+        log("Username typed");
+    }
+    public void typePassword(String password) {
+        type(passwordField, password);
+        log("Password typed");
+    }
+    public void clickLoginBtn() {
+
+        click(loginButton);
+        log("Login button  clicked");
+    }
 }
